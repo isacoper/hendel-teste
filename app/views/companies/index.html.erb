@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Companies</h1>
+
+<div class="card shadow mb-4">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Company name</th>
+        <th>Fantasy name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr>
+          <td><%= company.company_name %></td>
+          <td><%= company.fantasy_name %></td>
+          <td><%= company.email %></td>
+          <td><%= company.status %></td>
+          <td><%= link_to 'Show', company %></td>
+          <td><%= link_to 'Edit', edit_company_path(company) %></td>
+          <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br>
+
+<%= link_to 'New Company', new_company_path %>

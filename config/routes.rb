@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'examples#index'
@@ -9,4 +10,6 @@ Rails.application.routes.draw do
         :forgot_password, :page_404, :blank, :charts, :tables,
         on: :collection
   end
+
+  resources :companies
 end
