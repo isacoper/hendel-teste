@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :edit, :create, :update]
 
   # GET /companies
   # GET /companies.json
@@ -15,6 +16,7 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   def new
     @company = Company.new
+    @company.category_companies.build
   end
 
   # GET /companies/1/edit
@@ -67,8 +69,14 @@ class CompaniesController < ApplicationController
       @company = Company.find(params[:id])
     end
 
+    def set_category
+      @categories = Category.all
+    end
+
     # Only allow a list of trusted parameters through.
     def company_params
-      params.require(:company).permit(:company_name, :fantasy_name, :email, :status)
+      params.require(:company).permit(:company_name, :fantasy_name, :email, :status, 
+        category_companies_attributes: [:id, :category_id, :_destroy])
+        
     end
 end

@@ -1,38 +1,49 @@
-  <%= form_with(model: company, local: true) do |form| %>
-    <% if company.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+<%= simple_nested_form_for(@company) do |f| %>
+  <%= f.error_notification %>
 
-        <ul>
-          <% company.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <div class="form-group">
+      <%= f.label :company_name, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.input :company_name, label: false, input_html: {:class => "form-control "}%>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :fantasy_name, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :fantasy_name, label: false, input_html: {:class => "form-control "}%>
       </div>
-    <% end %>
-
-    <div class="field">
-      <%= form.label :company_name %>
-      <%= form.text_field :company_name %>
     </div>
 
-    <div class="field">
-      <%= form.label :fantasy_name %>
-      <%= form.text_field :fantasy_name %>
+    <div class="form-group">
+      <%= f.label :email, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :email, label: false, input_html: {:class => "form-control "}%>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
+    <div class="form-group">
+      <%= f.label :status, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :status, :as => :select, label: false, :collection => ['Ativo', 'Inativo']%>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :status %>
-      <%= form.select :status, ['Ativo', 'Inativo'] %>
-    </div>
+    <%= f.fields_for :category_companies do |o| %>
+      <div class="form-group">
+        <%= o.label :category, :class => "col-sm-3 control-label" %>
+          <div class="col-sm-5">
+            <%= o.select :category_id, @categories.collect{|s| [s.name, s.id] }, {include_blank: true}, :class => "form-control" %>
+          </div>
+      </div>
+    <% end %> 
 
-    <div class="actions">
-      <%= form.submit %>
+
+    <div class="col-sm-2"></div>
+    <div class="form-group">
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn-sm" %>
+      </div>
     </div>
   <% end %>
 </div>

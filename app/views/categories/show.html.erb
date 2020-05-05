@@ -7,7 +7,7 @@
 
 <p>
   <strong>Visible:</strong>
-  <%= @category.visible %>
+  <td><%= @category.visible? ? "Sim" : "Não" %></td>
 </p>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |

@@ -1,27 +1,29 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+
+<%= simple_form_for(@category) do |f| %>
+  <%= f.error_notification %>
+
+    <div class="form-group">
+      <%= f.label :name, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :name, label: false, input_html: {:class => "form-control "}%>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.label :visible, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :visible, label: false %>
+      </div>
+    </div>
+
+    <div class="col-sm-2"></div>
+    <div class="form-group">
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn-sm" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :visible %>
-    <%= form.check_box :visible %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

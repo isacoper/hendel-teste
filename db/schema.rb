@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_171617) do
+ActiveRecord::Schema.define(version: 2020_05_05_173928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,22 @@ ActiveRecord::Schema.define(version: 2020_05_05_171617) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "category_companies", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_companies_on_category_id"
+    t.index ["company_id"], name: "index_category_companies_on_company_id"
+  end
+
+  create_table "category_company", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "company_id"
+    t.index ["category_id"], name: "index_category_company_on_category_id"
+    t.index ["company_id"], name: "index_category_company_on_company_id"
+  end
+
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
     t.string "fantasy_name"
@@ -31,4 +47,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_171617) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "category_companies", "categories"
+  add_foreign_key "category_companies", "companies"
+  add_foreign_key "category_company", "categories"
+  add_foreign_key "category_company", "companies"
 end
