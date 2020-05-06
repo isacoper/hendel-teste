@@ -4,6 +4,8 @@
 // that code so it'll be compiled.
 
 //= require jquery_nested_form
+//= require jquery
+//= require jquery_ujs
 
 require("@rails/ujs").start()
 require("turbolinks").start()

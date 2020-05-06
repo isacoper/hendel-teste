@@ -20,5 +20,8 @@
   <%= @company.status %>
 </p>
 
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
+
+<%= render 'companies/company_user' %>

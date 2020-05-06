@@ -1,6 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
   before_action :set_category, only: [:new, :edit, :create, :update]
+  before_action :set_company_user, only: [:show]
 
   # GET /companies
   # GET /companies.json
@@ -63,6 +64,7 @@ class CompaniesController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
@@ -73,10 +75,13 @@ class CompaniesController < ApplicationController
       @categories = Category.all
     end
 
+    def set_company_user
+      @company_users = CompanyUser.where(company_id: params[:id])
+    end
+
     # Only allow a list of trusted parameters through.
     def company_params
       params.require(:company).permit(:company_name, :fantasy_name, :email, :status, 
         category_companies_attributes: [:id, :category_id, :_destroy])
-        
     end
 end

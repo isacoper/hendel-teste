@@ -1,0 +1,33 @@
+
+<%= simple_form_for(@company_user) do |f| %>
+  <%= f.error_notification %>
+  
+    <div class="form-group">
+      <%= f.label :name, :class => "col-sm-2 control-label" %>
+    <div class="col-sm-5">
+      <%= f.input :name, label: false, input_html: {:class => "form-control "}%>
+      <%= f.hidden_field :company_id, :value => @company.id %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :email, label: false, input_html: {:class => "form-control "}%>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password, :class => "col-sm-2 control-label" %>
+      <div class="col-sm-5">
+        <%= f.input :password, label: false, input_html: {:class => "form-control "}%>
+      </div>
+    </div>
+
+    <div class="col-sm-2"></div>
+    <div class="form-group">
+      <div class="form-actions">
+        <%= f.button :submit, :class => "btn-sm" %>
+      </div>
+    </div>
+  <% end %>

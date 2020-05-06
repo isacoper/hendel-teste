@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :company_users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'examples#index'
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
         on: :collection
   end
 
-  resources :companies
+  resources :companies do
+    resources :company_users
+  end
   resources :categories
 end
