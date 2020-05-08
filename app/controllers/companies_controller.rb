@@ -6,10 +6,13 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    if params[:query].present? 
+      @companies = Company.search(params[:query]) 
+    else
+      @companies = Company.all
+    end
     @companies = @companies.page(params[:page]).per(10)
   end
-
   # GET /companies/1
   # GET /companies/1.json
   def show

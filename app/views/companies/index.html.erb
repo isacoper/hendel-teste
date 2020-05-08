@@ -1,5 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container-fluid">
+  <div class="input-group">
+  <%= form_tag(companies_path, method: "get") do %>
+    <%= label_tag(:query, "Search for:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
 <h1>Companies</h1>
 
 <div class="card shadow mb-4">

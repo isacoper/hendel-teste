@@ -9,4 +9,7 @@ class Company < ApplicationRecord
     has_many :company_users, dependent: :destroy 
 
     mount_uploader :image, ImageUploader
+
+    include PgSearch
+    pg_search_scope :search, against: [:company_name, :fantasy_name]
 end
