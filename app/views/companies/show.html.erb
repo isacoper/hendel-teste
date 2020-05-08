@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p>	
+<strong>Imagem:</strong>
+  <%= image_tag(@company.image_url(:thumb).to_s) %>
+</p>
+
 <p>
   <strong>Company name:</strong>
   <%= @company.company_name %>

@@ -55,13 +55,18 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+    if @category.category_companies.empty?
+      @category.destroy
+      respond_to do |format|
+        format.html { redirect_to categories_url, notice: 'Category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to categories_path
+      flash[:error] = 'Category can not be destroyed.'
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
@@ -70,6 +75,6 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :visible)
+      params.require(:category).permit(:name, :visible, :image)
     end
 end

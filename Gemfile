@@ -60,3 +60,5 @@ gem "nested_form"
 gem 'jquery-rails'
 gem 'devise'
 gem 'kaminari'
+gem 'carrierwave'
+gem 'mini_magick'

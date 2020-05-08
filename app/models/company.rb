@@ -7,5 +7,6 @@ class Company < ApplicationRecord
     has_many :categories, through: :category_companies
     accepts_nested_attributes_for :category_companies, allow_destroy: true
     has_many :company_users, dependent: :destroy 
-    
+
+    mount_uploader :image, ImageUploader
 end

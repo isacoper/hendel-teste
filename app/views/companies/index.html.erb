@@ -6,6 +6,7 @@
   <table class="table table-hover">
     <thead>
       <tr>
+        <th>#</th>
         <th>Company name</th>
         <th>Fantasy name</th>
         <th>Email</th>
@@ -17,6 +18,7 @@
     <tbody>
       <% @companies.each do |company| %>
         <tr>
+          <td><%= image_tag(company.image_url(:thumb).to_s) %></td>
           <td><%= company.company_name %></td>
           <td><%= company.fantasy_name %></td>
           <td><%= company.email %></td>
