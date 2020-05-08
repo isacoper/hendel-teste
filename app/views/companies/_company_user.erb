@@ -27,9 +27,10 @@
             <tr>
               <td><%= company_user.name %></td>
               <td><%= company_user.email %></td>
-              <td><%= link_to 'Show', company_user %></td>
+              <td><%= link_to 'Show', company_company_user_path(company_user.company, company_user) %></td>
               <td><%= link_to 'Edit', edit_company_company_user_path(company_user.company, company_user) %></td>
-              <td><%= link_to 'Destroy', company_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+              
             </tr>
           <% end %>
         </tbody>

@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  
-  
-  resources :company_users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  devise_for :admins
+  devise_for :company_users
+
+   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   root 'examples#index'
+
+  resources :company_users
 
   resources :examples, only: :index do
     get :buttons, :cards, :utilities_color, :utilities_border,
