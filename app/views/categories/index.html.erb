@@ -27,4 +27,12 @@
 </div>
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+
+<div class="row">
+    <div class="col-md-6" >
+       <%= link_to 'New Category', new_category_path %>
+    </div>
+    <div class="col-md-6">
+      <%= paginate @companies %>
+    </div>
+</div>

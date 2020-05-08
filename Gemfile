@@ -59,3 +59,4 @@ gem 'simple_form'
 gem "nested_form"
 gem 'jquery-rails'
 gem 'devise'
+gem 'kaminari'
