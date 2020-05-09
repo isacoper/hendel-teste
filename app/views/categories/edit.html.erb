@@ -1,6 +1,30 @@
-<h1>Editing Category</h1>
 
-<%= render 'form', category: @category %>
+<div class="card shadow mb-4">
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="d-flex justify-content-between">
+          <div >
+            <h1>Editar Categoria</h1>
+          </div>
+          <div>
+          <%= link_to categories_path, class: 'btn btn-dark btn-sm' do %>
+            Voltar
+          <% end %>
+          </div>
+        </div>
+      <th>
+    </tr>
+  </thead>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+    <tbody>
+      <tr>   
+        <td>
+          <%= render 'form', category: @category %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

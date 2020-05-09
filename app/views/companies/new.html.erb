@@ -1,5 +1,30 @@
-<h1>New Company</h1>
+<div class="card shadow mb-4">
+<table class="table">
+  <thead>
+    <tr>
+      <th>
+        <div class="d-flex justify-content-between">
+          <div >
+            <h1>Cadastrar Empresa</h1>
+          </div>
+          <div>
+          <%= link_to companies_path, class: 'btn btn-dark btn-sm' do %>
+            Voltar
+          <% end %>
+          </div>
+        </div>
+      <th>
+    </tr>
+  </thead>
 
-<%= render 'form', company: @company %>
+  <tbody>
+    <tr>   
+     <td>
+        <%= render 'form', company: @company %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'Back', companies_path %>
+

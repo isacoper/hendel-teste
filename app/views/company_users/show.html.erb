@@ -1,15 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="card shadow mb-4">
+  <table class="table">
 
-<p>
-  <strong>Name:</strong>
-  <%= @company_user.name %>
-</p>
+    <thead>
+      <tr>
+        <th>
+          <div class="d-flex justify-content-between">
+            <div >
+              <h1>Detalhes Usuário</h1>
+            </div>
+            <div>
+            <%= link_to edit_company_company_user_path(@company, @company_user), class: 'btn btn-primary btn-sm' do %>
+              Editar
+            <% end %>
+            <%= link_to company_path(@company), class: 'btn btn-dark btn-sm' do %>
+              Voltar
+            <% end %>
+            </div>
+          </div>
+        <th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Email:</strong>
-  <%= @company_user.email %>
-</p>
+
+    <tbody>
+      <tr>   
+        <td>
+
+          <p>
+            <strong>Name:</strong>
+            <%= @company_user.name %>
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <%= @company_user.email %>
+          </p>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 
-<%= link_to 'Edit', edit_company_company_user_path(@company, @company_user) %> |
-<%= link_to 'Back', company_path(@company) %>

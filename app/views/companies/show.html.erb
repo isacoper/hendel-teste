@@ -1,32 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="card shadow mb-4">
+  <table class="table">
 
-<p>	
-<strong>Imagem:</strong>
-  <%= image_tag(@company.image_url(:thumb).to_s) %>
-</p>
+    <thead>
+      <tr>
+        <th>
+          <div class="d-flex justify-content-between">
+            <div >
+              <h1>Detalhes Empresa</h1>
+            </div>
+            <div>
+            <%= link_to edit_company_path(@company), class: 'btn btn-primary btn-sm' do %>
+              Editar
+            <% end %>
+            <%= link_to companies_path, class: 'btn btn-dark btn-sm' do %>
+              Voltar
+            <% end %>
+            </div>
+          </div>
+        <th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Company name:</strong>
-  <%= @company.company_name %>
-</p>
+    <tbody>
+      <tr>   
+        <td>
+          <p>	
+          <strong>Imagem:</strong>
+            <%= image_tag(@company.image_url(:thumb).to_s) %>
+          </p>
 
-<p>
-  <strong>Fantasy name:</strong>
-  <%= @company.fantasy_name %>
-</p>
+          <p>
+            <strong>Razão Social:</strong>
+            <%= @company.company_name %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @company.email %>
-</p>
+          <p>
+            <strong>Nome Fantasia:</strong>
+            <%= @company.fantasy_name %>
+          </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @company.status %>
-</p>
+          <p>
+            <strong>Email:</strong>
+            <%= @company.email %>
+          </p>
 
+          <p>
+            <strong>Status:</strong>
+            <%= @company.status %>
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
 
 <%= render 'companies/company_user' %>

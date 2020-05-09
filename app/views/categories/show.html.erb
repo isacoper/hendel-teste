@@ -1,19 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="card shadow mb-4">
+  <table class="table">
 
-<p>	
-<strong>Imagem:</strong>
-  <%= image_tag(@category.image_url(:thumb).to_s) %>
-</p>
+    <thead>
+      <tr>
+        <th>
+          <div class="d-flex justify-content-between">
+            <div >
+              <h1>Detalhes Categoria</h1>
+            </div>
+            <div>
+            <%= link_to edit_category_path(@category), class: 'btn btn-primary btn-sm' do %>
+              Editar
+            <% end %>
+            <%= link_to categories_path, class: 'btn btn-dark btn-sm' do %>
+              Voltar
+            <% end %>
+            </div>
+          </div>
+        <th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+    <tbody>
+      <tr>   
+        <td>
+          <p>	
+          <strong>Imagem:</strong>
+            <%= image_tag(@category.image_url(:thumb).to_s) %>
+          </p>
 
-<p>
-  <strong>Visible:</strong>
-  <td><%= @category.visible? ? "Sim" : "Não" %></td>
-</p>
+          <p>
+            <strong>Nome:</strong>
+            <%= @category.name %>
+          </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+          <p>
+            <strong>Visível:</strong>
+            <td><%= @category.visible? ? "Sim" : "Não" %></td>
+          </p>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

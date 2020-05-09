@@ -1,8 +1,33 @@
-<h1>Editing Company User</h1>
 
-<%= simple_form_for @company_user, url: company_company_user_path(@company, @company_user), method: :post do |f| %>
-    <%= render partial: 'form', locals: {f: f} %>
-<% end %>
+<div class="card shadow mb-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          <div class="d-flex justify-content-between">
+            <div >
+              <h1>Editar Usuário</h1>
+            </div>
+            <div>
+            <%= link_to company_path(@company), class: 'btn btn-dark btn-sm' do %>
+              Voltar
+            <% end %>
+            </div>
+          </div>
+        <th>
+      </tr>
+      </thead>
 
-<%= link_to 'Show', company_company_user_path(@company, @company_user) %> |
-<%= link_to 'Back', company_path(@company) %>
+
+        <tbody>
+            <tr>   
+                <td>
+                  <%= simple_form_for @company_user, url: company_company_user_path(@company, @company_user), method: :post do |f| %>
+                    <%= render partial: 'form', locals: {f: f} %>
+                  <% end %>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
