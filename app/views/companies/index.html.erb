@@ -30,6 +30,7 @@
         <th>Nome Fantasia</th>
         <th>Email</th>
         <th>Status</th>
+        <th>Categoria</th>
         <th><center>Ações</center></th>
         <th colspan="3"></th>
       </tr>
@@ -43,6 +44,7 @@
           <td><%= company.fantasy_name %></td>
           <td><%= company.email %></td>
           <td><%= company.status %></td>
+          <td><%= company.status %></td>
           <td><center>
             <%= link_to company, class: 'btn btn-secondary btn-sm' do %>
               <span class="glyphicon glyphicon-plus"></span>
@@ -52,7 +54,7 @@
               <span class="glyphicon glyphicon-plus"></span>
               Editar
             <% end %>
-            <%= link_to company, class: 'btn btn-danger btn-sm' do %>
+            <%= link_to company, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Tem certeza que deseja remover?' } do %>
               <span class="glyphicon glyphicon-plus"></span>
               Excluir
             <% end %>
